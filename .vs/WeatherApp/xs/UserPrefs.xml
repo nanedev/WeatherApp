@@ -1,0 +1,41 @@
+﻿<Properties StartupConfiguration="{8387A2AF-DAD1-4CA1-A338-36F19A3FA150}|Default">
+  <MonoDevelop.Ide.ItemProperties.WeatherApp.Android AndroidDesignerPreferredDevice="Nexus 4" TriggeredFromHotReload="False" PreferredExecutionTarget="Android.Pixel_2_API_R" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WeatherApp/WeatherApp/Views/MainPage.xaml">
+    <Files>
+      <File FileName="WeatherApp/WeatherApp/Views/MainPage.xaml" Line="6" Column="38" />
+      <File FileName="WeatherApp/WeatherApp/ViewModels/MainPageViewModel.cs" />
+      <File FileName="WeatherApp/WeatherApp.Android/Resources/layout/Tabbar.xml" />
+      <File FileName="WeatherApp/WeatherApp/App.xaml.cs" />
+      <File FileName="WeatherApp/WeatherApp/Views/DetailsPage.xaml" />
+      <File FileName="WeatherApp/WeatherApp/Models/WeatherMainModel.cs" />
+      <File FileName="WeatherApp/WeatherApp/WeatherRestClient/OpenWeatherMap.cs" />
+      <File FileName="WeatherApp/WeatherApp/ServiceHandler/WeatherService.cs" />
+      <File FileName="WeatherApp/WeatherApp/ViewModels/ViewModelBase.cs" />
+      <File FileName="WeatherApp/WeatherApp/Views/MainPage.xaml.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WeatherApp" expanded="True">
+            <Node name="WeatherApp" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="ServiceHandler" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="MainPage.xaml" expanded="True" selected="True" />
+              </Node>
+              <Node name="WeatherRestClient" expanded="True" />
+              <Node name="App.xaml" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
