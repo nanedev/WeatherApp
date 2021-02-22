@@ -23,6 +23,8 @@ namespace WeatherApp.Models
             public string description { get; set; }
             [JsonProperty("icon")]
             public string icon { get; set; }
+
+        
         }
 
         public class WeatherSysDetails
@@ -33,19 +35,42 @@ namespace WeatherApp.Models
 
         public class WeatherTempDetails
         {
-            [JsonProperty("temp")]
-            public string temp { get; set; }
+        private string _temperature;
+        [JsonProperty("temp")]
+        public string temp
+        {
+            get
+            {
+                return _temperature;
+            }
+            set
+            {
+
+                var temperature = double.Parse(value);
+
+                _temperature = Convert.ToInt32(temperature).ToString();
+            }
+        
+        }
             [JsonProperty("humidity")]
             public string humidity { get; set; }
 
-        [JsonProperty("pressure")]
-        public string pressure { get; set; }
-        }
+            [JsonProperty("pressure")]
+            public string pressure { get; set; }
+
+
+
+    }
 
         public class WeatherWindDetails
         {
             [JsonProperty("speed")]
             public string speed { get; set; }
         }
+
+
+
+
+
 
 }
