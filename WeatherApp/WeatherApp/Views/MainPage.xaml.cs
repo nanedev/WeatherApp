@@ -1,4 +1,6 @@
 ﻿
+using WeatherApp.ViewModels;
+
 namespace WeatherApp.Views
 {
     public partial class MainPage
@@ -6,6 +8,7 @@ namespace WeatherApp.Views
         public MainPage()
         {
             InitializeComponent();
+            this.BindingContext = new MainPageViewModel(null);
         }
     }
 }

@@ -13,5 +13,11 @@ namespace WeatherApp.ServiceHandler
             var getWeatherDetails = await _openWeatherRest.GetAllWeathers(city);
             return getWeatherDetails;
         }
+
+        public async Task<WeatherMainModel> GetWeatherDetailsLocation(double lat, double lon)
+        {
+            var getWeatherDetails = await _openWeatherRest.GetAllWeathersLocation(lat, lon);
+            return getWeatherDetails;
+        }
     }
 }

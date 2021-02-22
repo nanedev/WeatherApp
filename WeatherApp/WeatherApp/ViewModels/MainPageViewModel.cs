@@ -7,15 +7,19 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WeatherApp.Models;
 using WeatherApp.ServiceHandler;
+using Xamarin.Essentials;
 
 namespace WeatherApp.ViewModels
 {
     public class MainPageViewModel : ViewModelBase,INotifyPropertyChanged
     {
-        INavigationService _navigationService; 
+        INavigationService _navigationService;
+        CancellationTokenSource cts;
+
 
         private DelegateCommand _openDetailsPage;
 
@@ -23,14 +27,59 @@ namespace WeatherApp.ViewModels
 
         WeatherServices _weatherServices = new WeatherServices();
         private WeatherMainModel _weatherMainModel;
+
+        private double latitude, longitude;
        
+
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
             Title = "Main Page";
             _navigationService = navigationService;
+
+            GetCurrentLocation();
+      
+
         }
-       
+
+        async Task GetCurrentLocation()
+        {
+            try
+            {
+                var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
+                cts = new CancellationTokenSource();
+                var location = await Geolocation.GetLocationAsync(request, cts.Token);
+
+                if (location != null)
+                {
+                    Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+
+                    latitude = location.Latitude;
+                    longitude = location.Longitude;
+
+                    await InitializeGetWeatherAsyncLocation();
+                  
+                }
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Handle not supported on device exception
+            }
+            catch (FeatureNotEnabledException fneEx)
+            {
+                // Handle not enabled on device exception
+            }
+            catch (PermissionException pEx)
+            {
+                // Handle permission exception
+            }
+            catch (Exception ex)
+            {
+                // Unable to get location
+            }
+        }
+
+      
         public DelegateCommand OpenDetailsPage => 
             _openDetailsPage ?? (_openDetailsPage = new DelegateCommand(ExecuteOpenDetailsPage));
 
@@ -98,6 +147,19 @@ namespace WeatherApp.ViewModels
             {
                 IsBusy = true; // set the ui property "IsRunning" to true(loading) in Xaml ActivityIndicator Control
                 WeatherMainModel = await _weatherServices.GetWeatherDetails(_city);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private async Task InitializeGetWeatherAsyncLocation()
+        {
+            try
+            {
+                IsBusy = true; // set the ui property "IsRunning" to true(loading) in Xaml ActivityIndicator Control
+                WeatherMainModel = await _weatherServices.GetWeatherDetailsLocation(latitude, longitude);
             }
             finally
             {

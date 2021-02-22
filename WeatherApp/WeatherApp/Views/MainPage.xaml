@@ -1,13 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:weatherVm="clr-namespace:WeatherApp.ViewModels"
              x:Class="WeatherApp.Views.MainPage"
              Title="{Binding Title}">
-
+   
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Welcome to Xamarin Forms and Prism!" />
         <Button Text="Open Next Page" Command="{Binding OpenDetailsPage}" />
-    </StackLayout>
+        <Entry Text="{Binding City, Mode=TwoWay}"
+           Placeholder="Search City"/>
+        <ActivityIndicator IsRunning="{Binding IsBusy,Mode=TwoWay}"/>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="City:"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding WeatherMainModel.name}"/>
+            </StackLayout>
+        </StackLayout>
 
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Country:"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding WeatherMainModel.sys.country}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Temperature:"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding WeatherMainModel.main.temp}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Humidity:"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding WeatherMainModel.main.humidity}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Weather Main Status:"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding WeatherMainModel.weather[0].main}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Weather Status:"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding WeatherMainModel.weather[0].description}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Weather Icon:"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Image Source="{Binding IconImageString}"
+                   WidthRequest="30"
+                   HeightRequest="30"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Wind Speed:"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding WeatherMainModel.wind.speed}"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

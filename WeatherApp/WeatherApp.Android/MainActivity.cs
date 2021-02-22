@@ -19,6 +19,7 @@ namespace WeatherApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App(new AndroidInitializer()));
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
