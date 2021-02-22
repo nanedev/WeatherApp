@@ -37,6 +37,9 @@ namespace WeatherApp.Models
             public string temp { get; set; }
             [JsonProperty("humidity")]
             public string humidity { get; set; }
+
+        [JsonProperty("pressure")]
+        public string pressure { get; set; }
         }
 
         public class WeatherWindDetails
