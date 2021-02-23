@@ -37,7 +37,9 @@ namespace WeatherApp.WeatherRestClient
 
         public async Task<T> GetAllWeathersLocationForecast(double lat, double lon)
         {
+
             var json = await _httpClient.GetStringAsync(OpenWeatherApiForecast + "?lat=" + lat + "&lon=" + lon + Units + "&appid=" + Key);
+         
             var getWeatherModels = JsonConvert.DeserializeObject<T>(json);
             return getWeatherModels;
         }

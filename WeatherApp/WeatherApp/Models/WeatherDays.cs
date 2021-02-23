@@ -7,7 +7,7 @@ namespace WeatherApp.Models
 {
    public class WeatherDays
     {
-        public List<WeatherItem> list { get; set; }
+        public List<WeatherItem> List { get; set; }
     }
 
     public class WeatherItem
@@ -16,7 +16,7 @@ namespace WeatherApp.Models
         public string Date { get; set; }
 
         [JsonProperty("temp")]
-        Temp temp { get; set; }
+        Temp Temprature { get; set; }
 
         //[JsonProperty("weather")]
         //Weather weather { get; set; }
