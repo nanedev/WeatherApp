@@ -28,6 +28,8 @@ namespace WeatherApp.ViewModels
         WeatherServices _weatherServices = new WeatherServices();
         private WeatherMainModel _weatherMainModel;
 
+        private WeatherDays _weatherDays;
+
         private double latitude, longitude;
        
 
@@ -58,6 +60,7 @@ namespace WeatherApp.ViewModels
                     longitude = location.Longitude;
 
                     await InitializeGetWeatherAsyncLocation();
+                    await InitializeGetWeatherAsyncLocationForecast();
                   
                 }
             }
@@ -105,6 +108,17 @@ namespace WeatherApp.ViewModels
             }
         }
 
+        public WeatherDays WeatherDays
+        {
+            get { return _weatherDays; }
+            set
+            {
+                _weatherDays = value;
+               // IconImageString = "http://openweathermap.org/img/w/" + _weatherMainModel.weather[0].icon + ".png"; // fetch weather icon image
+                OnPropertyChanged();
+            }
+        }
+
         private string _city;   // for entry binding and for method parameter value
         public string City
         {
@@ -114,6 +128,7 @@ namespace WeatherApp.ViewModels
                 _city = value;
                 Task.Run(async () => {
                     await InitializeGetWeatherAsync();
+                    await InitializeGetWeatherAsyncForecast();
                 });
                 OnPropertyChanged();
             }
@@ -160,6 +175,32 @@ namespace WeatherApp.ViewModels
             {
                 IsBusy = true; // set the ui property "IsRunning" to true(loading) in Xaml ActivityIndicator Control
                 WeatherMainModel = await _weatherServices.GetWeatherDetailsLocation(latitude, longitude);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private async Task InitializeGetWeatherAsyncForecast()
+        {
+            try
+            {
+                IsBusy = true; // set the ui property "IsRunning" to true(loading) in Xaml ActivityIndicator Control
+                WeatherDays = await _weatherServices.GetWeatherDetailsForecast(_city);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private async Task InitializeGetWeatherAsyncLocationForecast()
+        {
+            try
+            {
+                IsBusy = true; // set the ui property "IsRunning" to true(loading) in Xaml ActivityIndicator Control
+                WeatherDays = await _weatherServices.GetWeatherDetailsLocationForecast(latitude, longitude);
             }
             finally
             {

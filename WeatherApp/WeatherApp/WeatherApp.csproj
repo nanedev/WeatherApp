@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="WeatherRestClient\" />
     <Folder Include="ServiceHandler\" />
   </ItemGroup>
