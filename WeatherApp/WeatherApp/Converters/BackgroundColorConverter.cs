@@ -14,19 +14,19 @@ namespace WeatherApp.Converters
 
             if (temp >= 0 && temp <=10)
             {
-                color = "#0000FF";
+                color = "#0000FF"; //blue
             }
             else if (temp > 10 && temp <= 15)
             {
-                color = "#FFFF00";
+                color = "#FFFF00"; //yellow
             }
             else if (temp > 15 && temp <= 25)
             {
-                color = "#FFA500";
+                color = "#FFA500"; //orange
             }
             else if (temp > 25)
             {
-                color = "#FF0000";
+                color = "#FF0000"; //red
             }
 
             return color;

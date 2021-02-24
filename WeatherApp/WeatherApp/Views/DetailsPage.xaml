@@ -32,8 +32,7 @@
           
         </StackLayout>
        
-         <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Start" Margin="20,0,0,0"
-                      BackgroundColor="{Binding WeatherMainModel.main.temp, Converter={StaticResource colorConverter}}">
+         <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Start" Margin="20,0,0,0">
            <StackLayout Orientation="Horizontal" >
             <StackLayout HorizontalOptions="StartAndExpand">
                 <Label Text="City:" FontSize="20" TextColor="Black" />
@@ -55,7 +54,7 @@
                 <Label Text="Temperature:" FontSize="20" TextColor="Black" />
             </StackLayout>
             <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
-                <Label Text="{Binding WeatherMainModel.main.temp}" TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="100,0,0,0"/>
+                <Label Text="{Binding WeatherMainModel.main.temp}" TextColor="{Binding WeatherMainModel.main.temp, Converter={StaticResource colorConverter}}" FontSize="20" FontAttributes="Bold" Margin="100,0,0,0"/>
             </StackLayout>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
