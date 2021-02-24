@@ -2,8 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com" xmlns:views="clr-namespace:WeatherApp.Views" xmlns:customrender="clr-namespace:WeatherApp.CustomRender"
+             xmlns:customConverter="clr-namespace:WeatherApp.Converters"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="WeatherApp.Views.DetailsPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <customConverter:BackgroundColorConverter x:Key="colorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ScrollView Orientation="Vertical">
     <Grid VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
@@ -24,7 +32,8 @@
           
         </StackLayout>
        
-         <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Start" Margin="20,0,0,0">
+         <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Start" Margin="20,0,0,0"
+                      BackgroundColor="{Binding WeatherMainModel.main.temp, Converter={StaticResource colorConverter}}">
            <StackLayout Orientation="Horizontal" >
             <StackLayout HorizontalOptions="StartAndExpand">
                 <Label Text="City:" FontSize="20" TextColor="Black" />

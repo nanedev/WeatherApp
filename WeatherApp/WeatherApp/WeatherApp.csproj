@@ -25,5 +25,6 @@
     <Folder Include="WeatherRestClient\" />
     <Folder Include="ServiceHandler\" />
     <Folder Include="CustomRender\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
 </Project>
