@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
+             xmlns:prism="http://prismlibrary.com" xmlns:views="clr-namespace:WeatherApp.Views"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="WeatherApp.Views.DetailsPage">
     <Grid VerticalOptions="FillAndExpand">
@@ -17,8 +17,8 @@
         <StackLayout Orientation="Vertical" Margin="0,20" HorizontalOptions="Center" VerticalOptions="Center">
             
             <Label Text="Search weather by City Name" TextColor="White" FontSize="16" HorizontalOptions="Center" FontAttributes="Bold"/>
-             <Entry Text="{Binding City, Mode=TwoWay}" HorizontalOptions="Center"
-           Placeholder="Search City"/>
+             <views:RoundedEntry Text="{Binding City, Mode=TwoWay}" HorizontalOptions="Center"
+           Placeholder="Search City" WidthRequest="300"/>
         <ActivityIndicator IsRunning="{Binding IsBusy,Mode=TwoWay}"/>
           
         </StackLayout>
