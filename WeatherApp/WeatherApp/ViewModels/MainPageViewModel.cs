@@ -132,7 +132,6 @@ namespace WeatherApp.ViewModels
             set
             {
                 _weatherDays = value;
-               // IconImageString = "http://openweathermap.org/img/w/" + _weatherMainModel.weather[0].icon + ".png"; // fetch weather icon image
                 OnPropertyChanged();
             }
         }

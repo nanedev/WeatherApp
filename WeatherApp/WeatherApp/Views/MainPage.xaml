@@ -111,9 +111,9 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Date}" TextColor="#757575" FontSize="12" VerticalOptions="Center" Margin="20,0"/>
-                                <Image Grid.Column="1" Source="grid.png" WidthRequest="38" HeightRequest="38" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Image Grid.Column="1" Source="{Binding weather[0].Icon}" WidthRequest="38" HeightRequest="38" HorizontalOptions="Center" VerticalOptions="Center" />
                                 <StackLayout Grid.Column="2" Orientation="Horizontal" Margin="20,0" HorizontalOptions="End" VerticalOptions="Center">
-                                    <Label Text="{Binding Temprature.DayTemp}" TextColor="Black" FontSize="30" FontAttributes="Bold" VerticalOptions="Center"/>
+                                    <Label Text="{Binding temp.DayTemp}" TextColor="Black" FontSize="30" FontAttributes="Bold" VerticalOptions="Center"/>
                                     <Label Text="°C" TextColor="Black" FontSize="15" VerticalOptions="Center"/>
                                 </StackLayout>
                             </Grid>
