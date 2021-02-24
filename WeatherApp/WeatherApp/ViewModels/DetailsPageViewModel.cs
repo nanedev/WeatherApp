@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,12 +9,17 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using WeatherApp.Models;
 using WeatherApp.ServiceHandler;
+using Xamarin.Essentials;
+using Prism.Services;
 
 namespace WeatherApp.ViewModels
 {
-    public class DetailsPageViewModel : BindableBase, INotifyPropertyChanged
+    public class DetailsPageViewModel : ViewModelBase, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        IPageDialogService PageDialogService;
+
+        private DelegateCommand _saveCityDelegate;
 
         WeatherServices _weatherServices = new WeatherServices();
 
@@ -27,6 +33,28 @@ namespace WeatherApp.ViewModels
                 IconImageString = "http://openweathermap.org/img/w/" + _weatherMainModel.weather[0].icon + ".png"; // fetch weather icon image
                 OnPropertyChanged();
             }
+        }
+
+        public DetailsPageViewModel(IPageDialogService pageDialogService) : base(pageDialogService)
+        {
+            PageDialogService = pageDialogService;
+            
+            var cityPreferences = Preferences.Get("city", "");
+
+            if (!string.IsNullOrEmpty(cityPreferences))
+            {
+                City = cityPreferences;
+            }
+        }
+
+        public DelegateCommand SaveCityDelegate =>
+            _saveCityDelegate ?? (_saveCityDelegate = new DelegateCommand(ExecuteSaveCityDelegate));
+
+
+        async void ExecuteSaveCityDelegate()
+        {
+            Preferences.Set("city", _city);
+            await PageDialogService.DisplayAlertAsync("", "City saved for next search", "OK");
         }
 
         private string _city;   // for entry binding and for method parameter value

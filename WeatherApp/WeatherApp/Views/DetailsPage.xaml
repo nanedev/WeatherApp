@@ -93,7 +93,7 @@
         </StackLayout>
               <StackLayout HorizontalOptions="Center" WidthRequest="150">
 
-            <customrender:ButtonShape Text="Save City" TextColor="Black"/>
+            <customrender:ButtonShape Text="Save City" TextColor="Black" Command="{Binding SaveCityDelegate}"/>
 
 
         </StackLayout>
