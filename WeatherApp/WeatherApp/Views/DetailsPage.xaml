@@ -4,5 +4,25 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="WeatherApp.Views.DetailsPage">
+    <Grid VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image Source="overlay.png" Aspect="Fill" HeightRequest="300" VerticalOptions="StartAndExpand"/>
+        <StackLayout Orientation="Vertical" Margin="0,20" HorizontalOptions="Center" VerticalOptions="Center">
+            
+            <Label Text="Search weather by City Name" TextColor="White" FontSize="16" HorizontalOptions="Center" FontAttributes="Bold"/>
+             <Entry Text="{Binding City, Mode=TwoWay}" HorizontalOptions="Center"
+           Placeholder="Search City"/>
+        <ActivityIndicator IsRunning="{Binding IsBusy,Mode=TwoWay}"/>
+          
+        </StackLayout>
+
+        </Grid>
   
 </ContentPage>

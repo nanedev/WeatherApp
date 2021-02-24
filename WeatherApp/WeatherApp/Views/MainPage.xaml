@@ -34,7 +34,7 @@
                 <Label Text="°C" TextColor="White" FontSize="34" VerticalOptions="Center"/>
             </StackLayout>
             <Label Text="{Binding WeatherMainModel.weather[0].description}" TextColor="White" FontSize="16" HorizontalOptions="Center"/>
-            <Button Text="Search other cities" BackgroundColor="White" FontSize="12" HorizontalOptions="Center" TextColor="Purple"/>
+            <Button Text="Search other cities "  Command="{Binding OpenDetailsPage}" BackgroundColor="White" FontSize="12" HorizontalOptions="Center" TextColor="Purple"/>
         </StackLayout>
         <Frame Grid.Row="1" HasShadow="True" CornerRadius="10" Margin="20,-40,20,0" Padding="0" HeightRequest="120" VerticalOptions="Start">
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
@@ -100,7 +100,7 @@
             <ImageButton x:Name="GridBtn" Source="grid.png" WidthRequest="15" HeightRequest="15"/>
         </StackLayout>
         <CollectionView x:Name="WeatherForecastList" HeightRequest="{Binding RowHeigth}" ItemsSource="{Binding WeatherDays.List}"
-                  Grid.Row="3" Margin="10, 10, 10, 10"  BackgroundColor="Yellow" >
+                  Grid.Row="3" Margin="10, 10, 10, 10" >
             <CollectionView.ItemTemplate>
                 <DataTemplate >
                         <Frame BackgroundColor="White" BorderColor="#F0F0F0" Padding="5" Margin="0,0,0,5" HasShadow="False">
@@ -121,8 +121,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Grid.Row="4" Text="Search by city name" Command="{Binding OpenDetailsPage}" TextColor="White" FontSize="16" VerticalOptions="Center"
-                HorizontalOptions="Center"/>
+        
     </Grid>
         </StackLayout>
         </ScrollView>
