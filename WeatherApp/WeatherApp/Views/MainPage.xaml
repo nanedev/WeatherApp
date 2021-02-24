@@ -5,8 +5,9 @@
              xmlns:weatherVm="clr-namespace:WeatherApp.ViewModels"
              x:Class="WeatherApp.Views.MainPage"
              Title="{Binding Title}">
-
-
+    <ScrollView
+        >
+    <StackLayout>
     <Grid VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -15,8 +16,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Image Source="overlay.png" Aspect="Fill" HeightRequest="300" VerticalOptions="StartAndExpand"/>
-        <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="20,50">
-            <Label  FontSize="16" VerticalOptions="Center" TextColor="White" >
+        <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center" VerticalOptions="Start" Margin="20,50">
+            <Label  FontSize="16" VerticalOptions="Center" TextColor="White" FontAttributes="Bold">
                 <Label.Text>
                     <MultiBinding StringFormat="{}{0}, {1}">
                         <Binding Path="WeatherMainModel.name" />
@@ -32,7 +33,7 @@
                 <Label Text="°C" TextColor="White" FontSize="34" VerticalOptions="Center"/>
             </StackLayout>
             <Label Text="{Binding WeatherMainModel.weather[0].description}" TextColor="White" FontSize="16" HorizontalOptions="Center"/>
-            <Label Text="June 15, 09:03 AM" TextColor="White" FontSize="12" HorizontalOptions="Center"/>
+            <Button Text="Search other cities" BackgroundColor="White" FontSize="12" HorizontalOptions="Center" TextColor="Purple"/>
         </StackLayout>
         <Frame Grid.Row="1" HasShadow="True" CornerRadius="10" Margin="20,-40,20,0" Padding="0" HeightRequest="120" VerticalOptions="Start">
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
@@ -97,8 +98,8 @@
             <ImageButton x:Name="ListBtn" Source="listColor.png" WidthRequest="15" HeightRequest="15" />
             <ImageButton x:Name="GridBtn" Source="grid.png" WidthRequest="15" HeightRequest="15"/>
         </StackLayout>
-        <ListView x:Name="WeatherForecastList" ItemsSource="{Binding WeatherDays.List}" SeparatorVisibility="None"
-                  Grid.Row="3" Margin="20,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <ListView x:Name="WeatherForecastList" HasUnevenRows="True" ItemsSource="{Binding WeatherDays.List}" SeparatorVisibility="None"
+                  Grid.Row="3" Margin="20,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
             <ListView.ItemTemplate>
                 <DataTemplate >
                     <ViewCell>
@@ -121,5 +122,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
     </Grid>
+        </StackLayout>
+        </ScrollView>
 </ContentPage>
