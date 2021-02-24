@@ -2,25 +2,24 @@
   <MonoDevelop.Ide.ItemProperties.WeatherApp.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.Pixel_2_API_R" />
   <MonoDevelop.Ide.Workbench ActiveDocument="WeatherApp/WeatherApp.Android/RoundenEntryRenderer.cs">
     <Files>
-      <File FileName="WeatherApp/WeatherApp/ServiceHandler/WeatherService.cs" Line="1" Column="1" />
-      <File FileName="WeatherApp/WeatherApp/ViewModels/MainPageViewModel.cs" Line="213" Column="32" />
-      <File FileName="WeatherApp/WeatherApp/Views/MainPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="WeatherApp/WeatherApp/Views/MainPage.xaml" Line="30" Column="8" />
-      <File FileName="WeatherApp/WeatherApp/Models/WeatherDays.cs" Line="1" Column="1" />
-      <File FileName="WeatherApp/WeatherApp/Models/WeatherMainModel.cs" Line="1" Column="1" />
-      <File FileName="WeatherApp/WeatherApp/ViewModels/DetailsPageViewModel.cs" Line="1" Column="1" />
-      <File FileName="WeatherApp/WeatherApp/ViewModels/ViewModelBase.cs" Line="1" Column="1" />
-      <File FileName="WeatherApp/WeatherApp/Views/DetailsPage.xaml" Line="12" Column="43" />
-      <File FileName="WeatherApp/WeatherApp/Views/RoundedEntry.cs" Line="6" Column="35" />
-      <File FileName="WeatherApp/WeatherApp.Android/RoundenEntryRenderer.cs" Line="1" Column="1" />
+      <File FileName="WeatherApp/WeatherApp/Views/MainPage.xaml" Line="98" Column="8" />
+      <File FileName="WeatherApp/WeatherApp/Views/DetailsPage.xaml" Line="22" Column="42" />
+      <File FileName="WeatherApp/WeatherApp/ViewModels/DetailsPageViewModel.cs" Line="77" Column="32" />
+      <File FileName="WeatherApp/WeatherApp/ViewModels/MainPageViewModel.cs" Line="18" Column="52" />
+      <File FileName="WeatherApp/WeatherApp/CustomRender/RoundedEntry.cs" Line="10" Column="10" />
+      <File FileName="WeatherApp/WeatherApp.Android/RoundenEntryRenderer.cs" Line="11" Column="47" />
+      <File FileName="WeatherApp/WeatherApp/CustomRender/ButtonShape.cs" Line="6" Column="34" />
+      <File FileName="WeatherApp/WeatherApp.Android/CustomButton.cs" Line="8" Column="10" />
+      <File FileName="WeatherApp/WeatherApp.Android/MainApplication.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WeatherApp" expanded="True">
             <Node name="WeatherApp" expanded="True">
-              <Node name="Models" expanded="True" />
+              <Node name="CustomRender" expanded="True" />
               <Node name="Views" expanded="True" />
+              <Node name="WeatherRestClient" expanded="True" />
             </Node>
             <Node name="WeatherApp.Android" expanded="True">
               <Node name="Properties" expanded="True" />

@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com" xmlns:views="clr-namespace:WeatherApp.Views"
+             xmlns:prism="http://prismlibrary.com" xmlns:views="clr-namespace:WeatherApp.Views" xmlns:customrender="clr-namespace:WeatherApp.CustomRender"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="WeatherApp.Views.DetailsPage">
+    <ScrollView Orientation="Vertical">
     <Grid VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="300"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -17,12 +18,91 @@
         <StackLayout Orientation="Vertical" Margin="0,20" HorizontalOptions="Center" VerticalOptions="Center">
             
             <Label Text="Search weather by City Name" TextColor="White" FontSize="16" HorizontalOptions="Center" FontAttributes="Bold"/>
-             <views:RoundedEntry Text="{Binding City, Mode=TwoWay}" HorizontalOptions="Center"
+             <customrender:RoundedEntry Text="{Binding City, Mode=TwoWay}" HorizontalOptions="Center"
            Placeholder="Search City" WidthRequest="300"/>
         <ActivityIndicator IsRunning="{Binding IsBusy,Mode=TwoWay}"/>
           
         </StackLayout>
+       
+         <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="Start" Margin="20,0,0,0">
+           <StackLayout Orientation="Horizontal" >
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="City:" FontSize="20" TextColor="Black" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" >
+                <Label Text="{Binding WeatherMainModel.name}" TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="100,0,0,0"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Country:" FontSize="20" TextColor="Black" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                <Label Text="{Binding WeatherMainModel.sys.country}" TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="100,0,0,0"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Temperature:" FontSize="20" TextColor="Black" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                <Label Text="{Binding WeatherMainModel.main.temp}" TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="100,0,0,0"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Humidity:" FontSize="20" TextColor="Black" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                <Label Text="{Binding WeatherMainModel.main.humidity}" TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="100,0,0,0"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Weather Main Status:" FontSize="20" TextColor="Black" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                <Label Text="{Binding WeatherMainModel.weather[0].main}" TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="100,0,0,0"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Weather Status:" FontSize="20" TextColor="Black" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                <Label Text="{Binding WeatherMainModel.weather[0].description}" TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="100,0,0,0"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" >
+            <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                <Label Text="Weather Icon:" FontSize="20" TextColor="Black" VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="100,0,0,0">
+                <Image Source="{Binding IconImageString}"
+                   WidthRequest="50"
+                   HeightRequest="50"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="Wind Speed:" FontSize="20" TextColor="Black"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" >
+                <Label Text="{Binding WeatherMainModel.wind.speed}" TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="100,0,0,0"/>
+            </StackLayout>
+        </StackLayout>
+              <StackLayout HorizontalOptions="Center" WidthRequest="150">
+
+            <customrender:ButtonShape Text="Save City" TextColor="Black"/>
+
+
+        </StackLayout>
+        </StackLayout>
+
+       
+           
 
         </Grid>
+        </ScrollView>
   
 </ContentPage>

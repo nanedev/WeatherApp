@@ -1,8 +1,8 @@
 ﻿using System;
 using Android.Content;
 using Android.Graphics.Drawables;
+using WeatherApp.CustomRender;
 using WeatherApp.Droid;
-using WeatherApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 [assembly: ExportRenderer(typeof(RoundedEntry), typeof(RoundenEntryRenderer))]

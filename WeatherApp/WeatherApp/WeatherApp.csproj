@@ -24,5 +24,6 @@
   <ItemGroup>
     <Folder Include="WeatherRestClient\" />
     <Folder Include="ServiceHandler\" />
+    <Folder Include="CustomRender\" />
   </ItemGroup>
 </Project>

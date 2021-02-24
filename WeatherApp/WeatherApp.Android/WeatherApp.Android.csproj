@@ -74,7 +74,8 @@
     <Compile Include="SplashActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <LinkDescription Include="LinkerSettings.xml" />
-    <Compile Include="RoundenEntryRenderer.cs" />
+    <Compile Include="CustomShapes\CustomButton.cs" />
+    <Compile Include="CustomShapes\RoundenEntryRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -211,6 +212,9 @@
       <Project>{BF568260-6ABD-4783-A833-56CA4DBD7BAA}</Project>
       <Name>WeatherApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomShapes\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

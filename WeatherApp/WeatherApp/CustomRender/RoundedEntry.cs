@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace WeatherApp.Views
+namespace WeatherApp.CustomRender
 {
     public class RoundedEntry : Entry
     {
