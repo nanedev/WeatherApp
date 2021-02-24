@@ -31,7 +31,25 @@ namespace WeatherApp.ViewModels
         private WeatherDays _weatherDays;
 
         private double latitude, longitude;
-       
+
+        int _rowHeigth;
+        public int RowHeigth
+        {
+            set
+            {
+                if (_rowHeigth != value)
+                {
+                    _rowHeigth = value;
+                    OnPropertyChanged();
+                    // SetNewColor();
+                }
+            }
+            get
+            {
+                return _rowHeigth;
+            }
+        }
+
 
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
@@ -188,6 +206,7 @@ namespace WeatherApp.ViewModels
             {
                 IsBusy = true; // set the ui property "IsRunning" to true(loading) in Xaml ActivityIndicator Control
                 WeatherDays = await _weatherServices.GetWeatherDetailsForecast(_city);
+                RowHeigth = WeatherDays.List.Count * 10 + WeatherDays.List.Count * 2 * 5;
             }
             finally
             {
@@ -201,6 +220,7 @@ namespace WeatherApp.ViewModels
             {
                 IsBusy = true; // set the ui property "IsRunning" to true(loading) in Xaml ActivityIndicator Control
                 WeatherDays = await _weatherServices.GetWeatherDetailsLocationForecast(latitude, longitude);
+                RowHeigth = WeatherDays.List.Count * 50 + WeatherDays.List.Count * 2 * 5 + 20;
             }
             finally
             {

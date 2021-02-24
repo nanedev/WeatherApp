@@ -1,5 +1,6 @@
 ﻿
 using WeatherApp.ViewModels;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WeatherApp.Views
 {
@@ -8,7 +9,7 @@ namespace WeatherApp.Views
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new MainPageViewModel(null);
+            this.BindingContext = ((MainPageViewModel)this.BindingContext);
         }
     }
 }

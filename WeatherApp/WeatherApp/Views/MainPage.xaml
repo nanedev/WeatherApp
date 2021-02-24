@@ -13,7 +13,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Image Source="overlay.png" Aspect="Fill" HeightRequest="300" VerticalOptions="StartAndExpand"/>
         <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center" VerticalOptions="Start" Margin="20,50">
@@ -98,11 +99,10 @@
             <ImageButton x:Name="ListBtn" Source="listColor.png" WidthRequest="15" HeightRequest="15" />
             <ImageButton x:Name="GridBtn" Source="grid.png" WidthRequest="15" HeightRequest="15"/>
         </StackLayout>
-        <ListView x:Name="WeatherForecastList" HasUnevenRows="True" ItemsSource="{Binding WeatherDays.List}" SeparatorVisibility="None"
-                  Grid.Row="3" Margin="20,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
-            <ListView.ItemTemplate>
+        <CollectionView x:Name="WeatherForecastList" HeightRequest="{Binding RowHeigth}" ItemsSource="{Binding WeatherDays.List}"
+                  Grid.Row="3" Margin="10, 10, 10, 10"  BackgroundColor="Yellow" >
+            <CollectionView.ItemTemplate>
                 <DataTemplate >
-                    <ViewCell>
                         <Frame BackgroundColor="White" BorderColor="#F0F0F0" Padding="5" Margin="0,0,0,5" HasShadow="False">
                             <Grid HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
                                 <Grid.ColumnDefinitions>
@@ -118,11 +118,11 @@
                                 </StackLayout>
                             </Grid>
                         </Frame>
-                    </ViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Grid.Row="4" Text="Search by city name" Command="{Binding OpenDetailsPage}" TextColor="White" FontSize="16" VerticalOptions="Center"
+                HorizontalOptions="Center"/>
     </Grid>
         </StackLayout>
         </ScrollView>
