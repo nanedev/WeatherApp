@@ -4,6 +4,7 @@
              xmlns:prism="http://prismlibrary.com" xmlns:views="clr-namespace:WeatherApp.Views" xmlns:customrender="clr-namespace:WeatherApp.CustomRender"
              xmlns:customConverter="clr-namespace:WeatherApp.Converters"
              prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Search City Weather"
              x:Class="WeatherApp.Views.DetailsPage">
 
     <ContentPage.Resources>

@@ -1,25 +1,28 @@
 ﻿<Properties StartupConfiguration="{8387A2AF-DAD1-4CA1-A338-36F19A3FA150}|Default">
-  <MonoDevelop.Ide.ItemProperties.WeatherApp.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.Nexus_6_API_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WeatherApp/WeatherApp/Converters/BackgroundColorConverter.cs">
+  <MonoDevelop.Ide.ItemProperties.WeatherApp.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.Pixel_2_API_R" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WeatherApp/WeatherApp/Views/DetailsPage.xaml">
     <Files>
-      <File FileName="WeatherApp/WeatherApp/ViewModels/DetailsPageViewModel.cs" Line="57" Column="94" />
-      <File FileName="WeatherApp/WeatherApp/Views/DetailsPage.xaml" Line="96" Column="109" />
-      <File FileName="WeatherApp/WeatherApp/Views/MainPage.xaml" Line="1" Column="1" />
-      <File FileName="WeatherApp/WeatherApp/ViewModels/MainPageViewModel.cs" Line="54" Column="70" />
-      <File FileName="WeatherApp/WeatherApp/ViewModels/ViewModelBase.cs" Line="34" Column="50" />
-      <File FileName="WeatherApp/WeatherApp/Converters/BackgroundColorConverter.cs" Line="1" Column="1" />
+      <File FileName="WeatherApp/WeatherApp/ViewModels/DetailsPageViewModel.cs" Line="1" Column="1" />
+      <File FileName="WeatherApp/WeatherApp/ViewModels/MainPageViewModel.cs" Line="1" Column="1" />
+      <File FileName="WeatherApp/WeatherApp/Views/MainPage.xaml" Line="5" Column="48" />
+      <File FileName="WeatherApp/WeatherApp/Views/DetailsPage.xaml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WeatherApp" expanded="True">
             <Node name="WeatherApp" expanded="True">
-              <Node name="Converters" expanded="True">
-                <Node name="BackgroundColorConverter.cs" selected="True" />
-              </Node>
+              <Node name="CustomRender" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="ServiceHandler" expanded="True" />
               <Node name="ViewModels" expanded="True" />
-              <Node name="Views" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="DetailsPage.xaml" selected="True" />
+              </Node>
+              <Node name="App.xaml" expanded="True" />
             </Node>
+            <Node name="WeatherApp.Android" expanded="True" />
           </Node>
         </State>
       </Pad>
